@@ -11,8 +11,8 @@ jobs:
     name: Unit tests and coverage
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-go@v2
+    - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2.8.0
+    - uses: actions/setup-go@bfdd3570ce990073878bf10f6b2d79082de49492 # v2.2.0
       with:
           go-version: "^1.17.4"
     - name: Make dependencies
@@ -22,7 +22,7 @@ jobs:
     - name: Run unit tests
       run: go test -race -covermode atomic -coverprofile=coverage.out ./...
     - name: Convert coverage to lcov
-      uses: jandelgado/gcov2lcov-action@v1.0.8
+      uses: jandelgado/gcov2lcov-action@2477d9ec11814a9326e7fdde8d315783d163edb7 # v1.0.8
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
